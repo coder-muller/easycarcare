@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 // Placeholder, um dia isso aqui vai ser criado automaticamente
 interface Carro {
   status: string;
@@ -11,9 +13,30 @@ interface Carro {
   proximaEtapa: string
 }
 
-const carros: Carro[] = []
+
 
 export default function ItemAgenda() {
+  const [carros, setCarros]: Carro[] = useState([])
+  const [loading, setLoading]: boolean = useState(true)
+
+  useEffect(() => {
+    const fetchCarros = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/carros")
+        if (!response.ok) {
+          throw new Error("Erro ao buscar dados da agenda")
+        }
+        const data = await response.json()
+        setCarros(data)
+      } catch (error) {
+        console.error("Erro:", error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchCarros()
+  }, [])
+
   const listaCarros = carros.map(carro => (
     <section className="flex xl:w-1/3">
       <div key={carro.placa} className="bg-blue-950 text-white my-6 lg:my-8 py-2 px-4">
@@ -32,5 +55,13 @@ export default function ItemAgenda() {
     </section>
   ))
 
-  return listaCarros
+  return (
+    <div>
+      {
+        loading ? (
+          <p> Carregando...</p >)
+          : listaCarros
+      }
+    </div>
+  )
 }

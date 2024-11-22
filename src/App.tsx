@@ -2,12 +2,11 @@ import ItemAgenda from "./components/ItemAgenda"
 import Header from "./components/Header"
 import { Modal } from "react-responsive-modal"
 import "react-responsive-modal/styles.css"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import AddAgenda from "./components/AddAgenda"
 function App() {
 
   const [open, setOpen]: boolean = useState(false)
-
   function addAgenda() {
     setOpen(true)
   }
