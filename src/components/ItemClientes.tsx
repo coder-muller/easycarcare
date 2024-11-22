@@ -12,42 +12,7 @@ interface Cliente {
   carro: Carro[];
 }
 
-const clientes: Cliente[] = [
-  {
-    nome: "Guilherme Coelho",
-    telefone: "53999999991",
-    email: "guilhermecoelho@gmail.com",
-    endereco: "Rua dos Bobos, 0",
-    carro: [
-      {
-        marca: "Volkswagen",
-        modelo: "GOLF GTI",
-        placa: "ABC1B91",
-        cor: "Cinza"
-      },
-      {
-        marca: "Porsche",
-        modelo: "911",
-        placa: "BYE9B11",
-        cor: "Amarelo"
-      }
-    ]
-  },
-  {
-    nome: "Augusto Cesar",
-    telefone: "53999999992",
-    email: "augustinho@gmail.com",
-    endereco: "Rua dos Bobos, 1",
-    carro: [
-      {
-        marca: "Mercedes",
-        modelo: "W124",
-        placa: "CEI4B30",
-        cor: "Azul"
-      }
-    ]
-  }
-]
+const clientes: Cliente[] = []
 
 
 export default function ItemClientes() {

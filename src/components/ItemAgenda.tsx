@@ -11,41 +11,7 @@ interface Carro {
   proximaEtapa: string
 }
 
-const carros: Carro[] = [
-  {
-    status: "Lavagem",
-    modelo: "GOLF GTI",
-    placa: "ABC1B91",
-    cliente: "Guilherme",
-    tempoRestante: "2h30",
-    equipe: "A",
-    servico: "Lavagem",
-    etapaRealizada: "Lavagem",
-    proximaEtapa: "limpeza interna, finalização"
-  },
-  {
-    status: "Pré-lavagem",
-    modelo: "Porsche 911",
-    placa: "BYE9B11",
-    cliente: "Guilherme",
-    tempoRestante: "4h30",
-    equipe: "B",
-    servico: "Lavagem detalhada",
-    etapaRealizada: "N/A",
-    proximaEtapa: ""
-  },
-  {
-    status: "Aguardando",
-    modelo: "Mercedes W124",
-    placa: "CEI4B30",
-    cliente: "Augusto",
-    tempoRestante: "3 dias",
-    equipe: "B",
-    servico: "Vitrificação",
-    etapaRealizada: "N/A",
-    proximaEtapa: "pré-lavagem, lavagem detalhada, descontaminação, higienização interna, vitrificação"
-  }
-]
+const carros: Carro[] = []
 
 export default function ItemAgenda() {
   const listaCarros = carros.map(carro => (
