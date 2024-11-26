@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 // Placeholder, um dia isso aqui vai ser criado automaticamente
-interface Carro {
+export interface Carro {
   status: string;
   modelo: string;
   placa: string;
@@ -16,7 +16,7 @@ interface Carro {
 
 
 export default function ItemAgenda() {
-  const [carros, setCarros]: Carro[] = useState([])
+  const [carros, setCarros] = useState<Carro[]>([])
   const [loading, setLoading]: boolean = useState(true)
 
   useEffect(() => {
@@ -25,6 +25,7 @@ export default function ItemAgenda() {
         const response = await fetch("http://localhost:3000/carros")
         if (!response.ok) {
           throw new Error("Erro ao buscar dados da agenda")
+          return
         }
         const data = await response.json()
         setCarros(data)
