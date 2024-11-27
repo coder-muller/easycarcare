@@ -17,7 +17,7 @@ export interface Carro {
 
 export default function ItemAgenda() {
   const [carros, setCarros] = useState<Carro[]>([])
-  const [loading, setLoading]: boolean = useState(true)
+  const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
     const fetchCarros = async () => {
@@ -25,7 +25,6 @@ export default function ItemAgenda() {
         const response = await fetch("http://localhost:3000/carros")
         if (!response.ok) {
           throw new Error("Erro ao buscar dados da agenda")
-          return
         }
         const data = await response.json()
         setCarros(data)
