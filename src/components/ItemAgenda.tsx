@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 // Placeholder, um dia isso aqui vai ser criado automaticamente
-interface Carro {
+export interface Carro {
   status: string;
   modelo: string;
   placa: string;
@@ -16,8 +16,8 @@ interface Carro {
 
 
 export default function ItemAgenda() {
-  const [carros, setCarros]: Carro[] = useState([])
-  const [loading, setLoading]: boolean = useState(true)
+  const [carros, setCarros] = useState<Carro[]>([])
+  const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
     const fetchCarros = async () => {
